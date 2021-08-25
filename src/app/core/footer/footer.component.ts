@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  author: string;
-  hoy: Date;
-  constructor() {
-    this.author = 'Alejandro Cerezo'
-    this.hoy = new Date()
-   }
+  author!: string;
+  hoy!: Date;
+  
+  constructor() {}
 
   ngOnInit(): void {
+    this.author = 'Alejandro Cerezo'
+    this.hoy = new Date()    
   }
 
 }
