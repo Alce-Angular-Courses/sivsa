@@ -3,9 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'siv-home',
   template: `
-    <p>
-      home works!
-    </p>
+  <h2>Home - saludos</h2>
+    <div class="row">
+      <siv-saludo class="col-6"></siv-saludo>
+      <siv-saludo-ref class="col-6"></siv-saludo-ref>
+      <siv-saludo-rx class="col-6"></siv-saludo-rx>       
+    </div> 
   `,
   styles: [
   ]

@@ -1,0 +1,12 @@
+
+<h3>Saludo-rx</h3>
+<div class="form-group">
+  <label for="nombre">Nombre</label>
+  <input type="text" [formControl]="fcNombre"
+    class="form-control" id="nombre" [placeholder]="label">
+</div>
+<button type="button" (click)="onBorrar($event) "
+  class="btn btn-primary">Borrar</button>
+<p>
+  Hola {{ fcNombre.value ? fcNombre.value.toUpperCase() : 'amigo'}}
+</p>
