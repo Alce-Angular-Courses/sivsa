@@ -5,6 +5,7 @@ import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
 import { PostComponent } from './post/post.component';
 import { BlogComponent } from './blog/blog.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { BlogComponent } from './blog/blog.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     AboutRoutingModule
   ]
 })
