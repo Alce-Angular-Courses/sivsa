@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <h2>Tareas</h2>
   <div class="row">
     <siv-lista-simple class="col-6"></siv-lista-simple>
+    <siv-lista class="col-6"></siv-lista>
   </div>
   `,
   styles: [
