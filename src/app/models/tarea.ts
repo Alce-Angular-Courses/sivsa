@@ -1,7 +1,7 @@
 interface iTarea {
   titulo: string,
   responsable: string,
-  isCompletes: boolean
+  isCompleted: boolean
 }
 
 export class Tarea implements iTarea {
@@ -9,7 +9,7 @@ export class Tarea implements iTarea {
   constructor(
     public titulo: string = '',
     public responsable: string = '',
-    public isCompletes: boolean = false
+    public isCompleted: boolean = false
     ) {
     //this.titulo = titulo
   }

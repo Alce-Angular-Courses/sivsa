@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'siv-tareas',
   template: `
-    <p>
-      tareas works!
-    </p>
+  <h2>Tareas</h2>
+  <div class="row">
+    <siv-lista-simple class="col-6"></siv-lista-simple>
+  </div>
   `,
   styles: [
   ]
