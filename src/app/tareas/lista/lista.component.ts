@@ -7,16 +7,34 @@ import { Tarea } from 'src/app/models/tarea';
   styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
+  storeName!: string;
   tareas!: Array<Tarea>
   constructor() { }
 
   ngOnInit(): void {
-    this.tareas = []
+    this.storeName = 'Tareas'
+    this.tareas = localStorage.getItem(this.storeName) 
+    ? JSON.parse(localStorage.getItem(this.storeName) as string)
+    : []
   }
 
-  onAddTarea(tarea: Tarea) {
+  onAddTarea(tarea: Tarea):void {
     this.tareas.push(tarea)
-    console.log(this.tareas)
+    this.saveData()
+  }
+
+  onDeleteTarea(i: number): void {
+    this.tareas.splice(i, 1)
+    this.saveData()
+  }
+
+  onChangeTarea(i: number): void {
+    this.tareas[i].isCompleted = !this.tareas[i].isCompleted
+    this.saveData()
+  }
+
+  private saveData(): void {
+    localStorage.setItem(this.storeName, JSON.stringify(this.tareas))
   }
 
 }
