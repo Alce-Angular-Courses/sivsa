@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { TruncatePipe } from 'src/app/shared/truncate.pipe';
 
 @Component({
   selector: 'siv-saludo',
@@ -9,10 +10,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 export class SaludoComponent implements OnInit {
   nombre!: string;
   label!: string;
-  constructor() { }
+  constructor(private truncate :TruncatePipe) { }
 
   ngOnInit(): void {
-    this.label = 'Dime tu nombre'
+    this.label = this.truncate.transform('Dime tu nombre', 10)
+    
     this.nombre = 'Pepe'
   }
 

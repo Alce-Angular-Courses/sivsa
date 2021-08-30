@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.author = 'Alejandro Cerezo'
+    this.author = 'alejandro cerezo'
     this.hoy = new Date()    
   }
 

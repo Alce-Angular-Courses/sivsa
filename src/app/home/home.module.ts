@@ -6,6 +6,8 @@ import { HomeComponent } from './home.component';
 import { SaludoComponent } from './saludo/saludo.component';
 import { SaludoRefComponent } from './saludo-ref/saludo-ref.component';
 import { SaludoRxComponent } from './saludo-rx/saludo-rx.component';
+import { SharedModule } from '../shared/shared.module';
+import { TruncatePipe } from '../shared/truncate.pipe';
 
 
 @NgModule({
@@ -19,7 +21,11 @@ import { SaludoRxComponent } from './saludo-rx/saludo-rx.component';
     CommonModule,
     HomeRoutingModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    TruncatePipe
   ]
 })
 export class HomeModule { }

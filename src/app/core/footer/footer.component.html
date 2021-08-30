@@ -1,9 +1,9 @@
 <div class="row text-center">
   <address class="col-12">
-    {{ author}}
+    {{ author | titlecase }}
   </address>
   <p class="col-12">
-    {{hoy.toLocaleDateString()}}
+    {{hoy | date:  'fullDate' | titlecase}}
   </p>
 
 </div>

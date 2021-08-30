@@ -1,12 +1,12 @@
 <h3 sivComentar="Información sobre nosotros">Blog</h3>
 <siv-post>
   <h4 class="titulo">Titulo...</h4>
-  <p class="texto">Esto es un contenido</p>
+  <p class="texto">{{ 'Esto es un contenido' | truncate : 30 }}</p>
   <p class="autor">Alejandro</p>
 </siv-post>
 
 <siv-post>
   <h4 class="titulo">Otro Titulo...</h4>
-  <p class="texto">Esto es otro contenido diferente</p>
+  <p class="texto"> {{ 'Esto es otro contenido diferente' | truncate : 30 }}</p>
   <p class="autor">Emilio</p>
 </siv-post>
