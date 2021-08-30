@@ -1,11 +1,5 @@
 <ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="'home'"  >Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="'tareas'">Tareas</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="'about'">About</a>
+    <li *ngFor="let item of itemsMenu" class="nav-item">
+        <a class="nav-link" [routerLink]="item.path">{{item.label}}</a>
     </li>
 </ul>
