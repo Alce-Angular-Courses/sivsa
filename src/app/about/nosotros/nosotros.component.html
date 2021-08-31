@@ -1,0 +1,13 @@
+<h3>Nosotros </h3>
+<!-- <fa-icon [icon]="faBeer"></fa-icon> -->
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let image of imagenes">
+    <div class="picsum-img-wrapper">
+      <img [src]="image.imagen" [alt]="image.texto">
+    </div>
+    <div class="carousel-caption">
+      <h3>{{ image.titulo }}</h3>
+      <p>{{ image.texto }}</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import localeEs from '@angular/common/locales/es'
 import { registerLocaleData } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import { HomeModule } from './home/home.module';
 
 registerLocaleData(localeEs, 'es')
@@ -22,6 +23,7 @@ registerLocaleData(localeEs, 'es')
     NgbModule,
     CoreModule,
     SharedModule,
+    FontAwesomeModule,
     // HomeModule
   ],
   providers: [
