@@ -5,6 +5,7 @@ import { CursosRoutingModule } from './cursos-routing.module';
 import { CursosComponent } from './cursos.component';
 import { FormTdComponent } from './form-td/form-td.component';
 import { FormMdComponent } from './form-md/form-md.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { FormMdComponent } from './form-md/form-md.component';
   ],
   imports: [
     CommonModule,
-    CursosRoutingModule
+    CursosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CursosModule { }

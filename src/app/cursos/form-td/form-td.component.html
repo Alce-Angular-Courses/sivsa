@@ -1,75 +1,99 @@
 <h3>Form Template driven</h3>
-<form name="form-td" id ="form-td">
+<form name="form-td" id ="form-td" #form #ngForm="ngForm" (ngSubmit)="onSubmit(ngForm.value)">
   <fieldset>
       <legend>Datos de usuario</legend>
       <div class="form-group">
           <label for="nombre">Nombre</label>
-          <input type="text" class="form-control" name="nombre" id="nombre">
+          <input type="text" class="form-control" name="nombre" id="nombre" ngModel>
       </div>
       <div class="form-group">
           <label for="apellidos">Apellidos</label>
-          <input type="text" class="form-control" name="apellidos" id="apellidos">
+          <input type="text" class="form-control" name="apellidos" id="apellidos" 
+          required minlength="2" pattern="[A-Za-z]{2,50}" ngModel #apellidos="ngModel">
+      </div>
+      <div class="error" [hidden]="apellidos.untouched || apellidos.valid">
+        <p *ngIf="apellidos.errors?.required">El campo apellidos es necesario</p>
+        <p *ngIf="apellidos.errors?.ninLength || apellidos.errors?.pattern">El formato del apellido no es correcto</p>
       </div>
       <div class="form-group">
           <label for="dni">DNI</label>
-          <input type="text" class="form-control" name="dni" id="dni">
+          <input type="text" class="form-control" name="dni" id="dni" required maxlength="10" ngModel>
           </div>  
       <div class="form-group">
           <label for="email">Correo</label>
-          <input type="email" class="form-control" name="email" id="email"
-          required>
+          <input type="email" class="form-control" name="email" id="email" required ngModel>
       </div>
       <div class="form-group">
           <label for="nacim">Fecha de nacimiento</label>
-          <input type="date" class="form-control" name="nacim" id="nacim">
+          <input type="date" class="form-control" name="nacim" id="nacim" ngModel>
       </div>
       <div class="form-group">
         <label for="coment">Comentarios</label>
-        <textarea class="form-control" name="coment" id="coment" rows="3"></textarea>
+        <textarea class="form-control" name="coment" id="coment" rows="3" ngModel></textarea>
       </div>                            
   </fieldset>    
   <fieldset>
       <legend>Datos del curso</legend>
       <div class="form-check">
           <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" name="isOk" id="isOk">
+          <input type="checkbox" class="form-check-input" name="isOk" id="isOk" ngModel required>
           Estoy de acuerdo con ....
           </label>
       </div>  
       <div>
           <legend>Turno</legend>
-          <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="turno" id=""
-              value="mañana" required>
-              Mañana
-          </label>
+          <div *ngFor="let turno of turnos" class="form-check"
+           [title]="turno.info">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="turno" [id]="'trn-'+turno.id"
+                [value]="turno" ngModel>
+                {{turno.nombre}}
+            </label>
+          </div>
+          <!--<div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="turno" id=""
+                value="mañana" required>
+                Mañana
+            </label>
           </div>
           <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="turno" id="" 
-              value="tarde">
-              Tarde
-          </label>
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="turno" id="" 
+                value="tarde">
+                Tarde
+            </label>
           </div>
           <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="turno" id="" 
-              value="noche">
-              Noche
-          </label>
-          </div>            
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="turno" id="" 
+                value="noche">
+                Noche
+            </label>
+          </div>-->          
       </div>  
       <div class="form-group" >
       <label for="curso">Selecciona el tema</label>
-          <select class="form-control" name="curso" id="curso" required>
-              <option value=""></option>
-              <option value="angular">Angular</option>
+          <select class="form-control" name="curso" id="curso" ngModel>
+              <!-- <option value=""></option> -->
+              <option *ngFor="let curso of cursos" [ngValue]="curso" [title]="curso.info">
+                {{curso.nombre}}
+              </option>
+              <!-- <option value="angular">Angular</option>
               <option value="react">React</option>
-              <option value="vue">Vue</option>
+              <option value="vue">Vue</option> -->
           </select>
       </div>
   </fieldset>
-  <button type="submit" class="btn btn-primary">
+  <button type="submit" class="btn btn-primary" [disabled]="ngForm.invalid">
+    <!--  -->  
       Enviar</button>
-</form>            
+    <button type="reset" class="btn btn-primary" [disabled]="ngForm.pristine">Borrar</button>
+</form>      
+
+<ng-container *ngIf="!isProd">
+    {{ngForm.value | json}}
+</ng-container>
+
+
+
