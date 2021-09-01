@@ -18,13 +18,9 @@ export class ListaSimpleComponent implements OnInit {
     /* this.tareas = localStorage.getItem(this.storeName) 
     ? JSON.parse(localStorage.getItem(this.storeName) as string)
     : [] */
- 
-    this.ts.tareas$.subscribe(
-      data => {
-        this.tareas = data
-      }
-    )
     this.tarea = new Tarea()
+    this.tareas = this.ts.getTareas()
+    this.ts.tareas$.subscribe(data => this.tareas = data)
   }
 
   onAddTarea(): void {
@@ -44,6 +40,6 @@ export class ListaSimpleComponent implements OnInit {
 
   private saveData(): void {
     // localStorage.setItem(this.storeName, JSON.stringify(this.tareas))
-    // this.ts.setTareas(this.tareas)
+    this.ts.setTareas(this.tareas)
   }
 }

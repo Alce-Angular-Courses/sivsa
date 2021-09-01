@@ -8,16 +8,16 @@ import { Tarea } from '../models/tarea';
 export class TareasRxService {
 
   storeName: string
-  tareas: Array<Tarea>
+  // tareas: Array<Tarea>
   tareas$: Subject<Array<Tarea>>
   constructor() {
     this.storeName = 'Tareas'
-    this.tareas = this.getTareas()
     this.tareas$ = new Subject()
   }
 
-  setTareas(): void {
-     localStorage.setItem(this.storeName, JSON.stringify(this.tareas))
+  setTareas(tareas: Array<Tarea>): void {
+     localStorage.setItem(this.storeName, JSON.stringify(tareas))
+     this.tareas$.next(tareas)
   }
 
   getTareas(): Array<Tarea> {

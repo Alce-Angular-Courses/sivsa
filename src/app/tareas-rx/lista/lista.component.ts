@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from 'src/app/models/tarea';
-import { TareasService } from 'src/app/services/tareas.service';
+import { TareasRxService } from 'src/app/services/tareas-rx.service';
 
 @Component({
   selector: 'siv-lista',
@@ -10,13 +10,14 @@ import { TareasService } from 'src/app/services/tareas.service';
 export class ListaComponent implements OnInit {
   //storeName!: string;
   tareas!: Array<Tarea>
-  constructor(private ts: TareasService) { }
+  constructor(private ts: TareasRxService) { }
 
   ngOnInit(): void {
     // this.storeName = 'Tareas'
     // this.tareas = localStorage.getItem(this.storeName) 
     // ? JSON.parse(localStorage.getItem(this.storeName) as string)
     // : []
+    this.ts.tareas$.subscribe(data => this.tareas = data)
     this.tareas = this.ts.getTareas()
   }
 
