@@ -14,8 +14,16 @@ const routes: Routes = [
     loadChildren: () => import('./tareas/tareas.module').then(m => m.TareasModule)
   },
   {
+    path: 'tareas-rx', 
+    loadChildren: () => import('./tareas-rx/tareas-rx.module').then(m => m.TareasRxModule)
+  },
+  {
     path: 'cursos', 
     loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule)
+  },
+  {
+    path: 'libros', 
+    loadChildren: () => import('./libros/libros.module').then(m => m.LibrosModule)
   },
   {
     path: 'about', 

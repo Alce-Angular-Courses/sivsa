@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tarea } from 'src/app/models/tarea';
-import { TareasService } from 'src/app/services/tareas.service';
+import { TareasRxService } from 'src/app/services/tareas-rx.service';
 
 @Component({
   selector: 'siv-lista-simple',
@@ -11,14 +11,19 @@ export class ListaSimpleComponent implements OnInit {
   // storeName!: string;
   tareas!: Array<Tarea>
   tarea!: Tarea
-  constructor(private ts: TareasService) { }
+  constructor(private ts: TareasRxService) { }
 
   ngOnInit(): void {
     // this.storeName = 'Tareas'
     /* this.tareas = localStorage.getItem(this.storeName) 
     ? JSON.parse(localStorage.getItem(this.storeName) as string)
     : [] */
-    this.tareas = this.ts.getTareas()
+ 
+    this.ts.tareas$.subscribe(
+      data => {
+        this.tareas = data
+      }
+    )
     this.tarea = new Tarea()
   }
 
@@ -39,6 +44,6 @@ export class ListaSimpleComponent implements OnInit {
 
   private saveData(): void {
     // localStorage.setItem(this.storeName, JSON.stringify(this.tareas))
-    this.ts.setTareas(this.tareas)
+    // this.ts.setTareas(this.tareas)
   }
 }

@@ -1,0 +1,9 @@
+
+  <span>
+    <input type="checkbox" [(ngModel)]="tarea.isCompleted" (change)='onSendChangeTarea()'>
+  </span>
+  <!-- <span [class]="tarea.isCompleted ? 'completed' : '' ">{{tarea.titulo}}</span> -->
+  <span [class.completed]="tarea.isCompleted">{{tarea.titulo}}</span>
+  <span> | </span>
+  <span [ngClass]="{'completed': tarea.isCompleted}">{{tarea.responsable}}</span>
+  <span class="boton" (click)="onSendDeleteTarea()">🗑</span>

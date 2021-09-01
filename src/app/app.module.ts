@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import localeEs from '@angular/common/locales/es'
 import { registerLocaleData } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TareasService } from './services/tareas.service';
 // import { HomeModule } from './home/home.module';
 
 registerLocaleData(localeEs, 'es')
@@ -27,7 +28,9 @@ registerLocaleData(localeEs, 'es')
     // HomeModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'es'}
+    {provide: LOCALE_ID, useValue: 'es'},
+    // {provide: TareasService, useClass: TareasService},
+    // TareasService 
   ],
   exports:[],
   bootstrap: [AppComponent]

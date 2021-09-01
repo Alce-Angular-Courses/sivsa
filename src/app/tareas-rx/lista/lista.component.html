@@ -1,0 +1,19 @@
+<h3>lista tareas</h3>
+
+<siv-nueva (addTarea)="onAddTarea($event)"></siv-nueva>
+
+<div *ngIf="tareas.length; else elseTemplate" >
+  <h4>Lista de tareas</h4>
+  <ul class="list-group">
+    <li *ngFor="let tarea of tareas; let i = index" class="list-group-item">
+      <siv-tarea [tarea]="tarea" [i]="i" (deleteTarea)="onDeleteTarea($event)" 
+      (changeTarea)="onChangeTarea($event)"></siv-tarea>
+    </li>
+  </ul>
+</div>
+
+<ng-template #elseTemplate>
+    <p>Animate con tu primera tarea</p>
+</ng-template>
+
+

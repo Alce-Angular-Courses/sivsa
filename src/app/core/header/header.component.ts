@@ -21,7 +21,9 @@ export class HeaderComponent implements OnInit {
     this.itemsMenu = [
       {path: 'home', label: 'Home'},
       {path: 'tareas', label: 'Tareas'},
+      {path: 'tareas-rx', label: 'TareasRx'},
       {path: 'cursos', label: 'Cursos'},
+      {path: 'libros', label: 'Libros'},
       {path: 'about', label: 'About'}
     ]
       
