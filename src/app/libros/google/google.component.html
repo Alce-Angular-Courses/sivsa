@@ -1,10 +1,10 @@
-<h3>Mock busqueda libros</h3>
+
+<h3>Google busqueda libros</h3>
 <div class="form-group">
   <input type="text" class="form-control" 
   placeholder="Clave de busqueda" [(ngModel)]="clave">
 </div>
 <button type="button" class="btn btn-primary" (click)="onBuscar()">Buscar</button>
-<button type="button" class="btn btn-primary" (click)="onBuscarAsync()">Buscar Async</button>
 <button type="button" class="btn btn-primary" (click)="onBuscarRx()">Buscar Rx</button>
 <div *ngIf="libros.length">
   <h4>Libros encontrados</h4>

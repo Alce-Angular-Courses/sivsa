@@ -5,12 +5,14 @@ import { LibrosRoutingModule } from './libros-routing.module';
 import { LibrosComponent } from './libros.component';
 import { MockComponent } from './mock/mock.component';
 import { FormsModule } from '@angular/forms';
+import { GoogleComponent } from './google/google.component';
 
 
 @NgModule({
   declarations: [
     LibrosComponent,
-    MockComponent
+    MockComponent,
+    GoogleComponent
   ],
   imports: [
     CommonModule,
