@@ -26,8 +26,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
     AboutRoutingModule
   ],
-  schemas: [
+  /* schemas: [
     CUSTOM_ELEMENTS_SCHEMA
-  ]
+  ] */
 })
 export class AboutModule { }
