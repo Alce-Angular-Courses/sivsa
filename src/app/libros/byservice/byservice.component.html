@@ -1,0 +1,18 @@
+<h3>Busqueda libros byservice</h3>
+<div class="form-group">
+  <input type="text" class="form-control" 
+  placeholder="Clave de busqueda" [(ngModel)]="clave">
+</div>
+<button type="button" class="btn btn-primary" (click)="onBuscar()">Buscar</button>
+<button type="button" class="btn btn-primary" (click)="onBuscarRx()">Buscar Rx</button>
+<div *ngIf="libros.length">
+  <h4>Libros encontrados</h4>
+  <ul class="list-group">
+    <li *ngFor="let libro of libros" class="list-group-item">
+      <span>{{libro.id}}</span>
+      <span>{{libro.titulo}}</span>
+      <span>{{libro.autor}}</span>
+      <span>{{libro.fecha}}</span>
+    </li>
+  </ul>
+</div>

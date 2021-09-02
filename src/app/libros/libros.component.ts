@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     <div class="row">
       <siv-mock class="col-6"></siv-mock>
       <siv-google class="col-6"></siv-google>
+      <siv-byservice class="col-6"></siv-byservice>
     </div>
   `,
   styles: [
