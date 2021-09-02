@@ -18,9 +18,9 @@
   <ul class="list-group">
     <li *ngFor="let tarea of tareas; let i = index" class="list-group-item">
       <span>
-        <input type="checkbox" [(ngModel)]="tarea.isCompleted" (change)='onChangeTarea()'>
+        <input type="checkbox" [(ngModel)]="tarea.isCompleted" (change)='onChangeTarea(tarea)'>
       </span>
-      <!-- <span [class]="tarea.isCompleted ? 'completed' : '' ">{{tarea.titulo}}</span> -->
+      <span>{{tarea.id}}</span>
       <span [class.completed]="tarea.isCompleted">{{tarea.titulo}}</span>
       <span> | </span>
       <span [ngClass]="{'completed': tarea.isCompleted}">{{tarea.responsable}}</span>

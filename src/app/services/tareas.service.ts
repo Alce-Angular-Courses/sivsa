@@ -19,8 +19,4 @@ export class TareasService {
       ? JSON.parse(localStorage.getItem(this.storeName) as string) 
       : []
   }
-
-
-  
-
 }
